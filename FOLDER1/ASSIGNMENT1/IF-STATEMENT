@@ -1,0 +1,7 @@
+<?php
+$kda = 500;
+
+if ($kda >= 400) {
+    echo "You got Mvp!";
+}
+?>
