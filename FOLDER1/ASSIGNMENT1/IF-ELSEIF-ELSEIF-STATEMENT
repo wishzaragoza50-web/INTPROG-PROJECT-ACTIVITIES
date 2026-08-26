@@ -1,0 +1,15 @@
+<?php
+
+$points = 85;
+
+if ($points >= 90) {
+    echo "Excellent!";
+} elseif ($points >= 80) {
+    echo "Good!";
+} elseif ($points >= 75) {
+    echo "Average!";
+} else {
+    echo "Poor.";
+}
+
+?>
