@@ -1,0 +1,29 @@
+
+<html>
+<body>
+
+<h2>Enter Your Name</h2>
+
+<input id="name" placeholder="Enter your name">
+<button onclick="sendData()">Submit</button>
+
+<p id="result"></p>
+
+<script>
+function sendData() {
+    var request = new XMLHttpRequest();
+    var name = document.getElementById("name").value;
+
+    request.open("POST", "lab5.php");
+    request.setRequestHeader("Content-Type", "application/json");
+
+    request.onload = function() {
+        document.getElementById("result").innerHTML = request.responseText;
+    };
+
+    request.send(JSON.stringify({name: name}));
+}
+</script>
+
+</body>
+</html>
