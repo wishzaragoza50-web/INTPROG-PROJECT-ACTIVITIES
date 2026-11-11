@@ -1,0 +1,8 @@
+1. What is the difference between readyState and status in XMLHttpRequest?
+readyState tells the current state of the request, while status tells if the request was successful or not.
+
+2. How can you make the request asynchronous?
+Set the third parameter of `xhr.open()` to `true`.
+
+3. Why is asynchronous communication recommended for web applications?
+Because it allows the webpage to continue working while waiting for data from the server.

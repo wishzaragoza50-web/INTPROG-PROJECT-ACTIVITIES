@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+    
+    <h2>XMLHttpRequest</h2>
+    <button onclick="loadData()">Load Post Data</button>
+    <div id="output"></div>
+
+    <script>
+
+        function loadData() {
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    document.getElementById("output").innerHTML =
+                        "Title: " + data.title +
+                        "<br><br>Body: " + data.body;
+                } else {
+
+                    document.getElementById("output").innerHTML =
+                        "<span style='color:red'>Error loading data!</span>";
+                }
+            };
+
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+            xhr.send();
+        }
+        
+    </script>
+</body>
+</html>
