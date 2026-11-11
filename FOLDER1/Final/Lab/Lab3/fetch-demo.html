@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>My Fetch API</h2>
+
+    <button onclick="getPost()">Get</button>
+    <button onclick="addPost()">Post</button>
+
+    <div id="output"></div>
+
+    <script>
+
+        function getPost() {
+            fetch("https://jsonplaceholder.typicode.com/posts/1")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").innerHTML =
+                    "Title: " + data.title +
+                    "<br><br>Body: " + data.body;
+            })
+            .catch(() => {
+                document.getElementById("output").innerHTML = "Error loading post!";
+            });
+        }
+
+        function addPost() {
+            fetch("https://jsonplaceholder.typicode.com/posts", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    title: "My New Post",
+                    body: "I am learning Fetch API.",
+                    userId: 1
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").innerHTML =
+                    "Post created successfully!<br>ID: " + data.id;
+            })
+            .catch(() => {
+                document.getElementById("output").innerHTML = "Error creating post!";
+            });
+        }
+
+    </script>
+
+</body>
+</html>
